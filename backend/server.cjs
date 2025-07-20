@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const app = express()
 const {DB_HOST, PORT = 5000} = process.env
+const AuthRoutes = require('./routes/auth.js')
 
 app.use(express.json())
 
@@ -20,4 +21,6 @@ mongoose.connect(DB_HOST)
 
 app.get('/', (req, res)=> {
     res.send('Hello from Backend!')
-}) 
+})
+
+app.use('api/auth', authRoutes)
