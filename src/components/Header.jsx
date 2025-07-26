@@ -2,15 +2,12 @@ import { useState } from "react";
 import style from "../../styles/header.module.scss"
 import { Link } from 'react-router-dom'
 import clsx from "clsx";
-
-const fakeUser={
-    name: 'Bogdan',
-}
+import { useAuth } from "../context/AuthContext";
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const toggleMenu = () => setMenuOpen(!menuOpen)
-    const [isLogginedIn, setLogginedIn] = useState(true)
+    const {user, logout} = useAuth();
 
     return(
         <header className={style.header}>
@@ -26,14 +23,18 @@ function Header() {
                         <span></span>
                     </div>
                     <nav className={clsx(style.menu__body, { [style.active] : menuOpen })}>
-                        {isLogginedIn ?(
-                            <h2 className={style.authUser}>{fakeUser.name}</h2>
+                        {user ?(
+                            <h2 className={style.authUser}>{user.username}</h2>
                         ):(
                             <h2></h2>
                         )}
                         <ul>
                             <li><Link to='/' className={style.menu__link}>MAIN</Link></li>
-                            <li><Link to='/login' className={style.menu__link}>LOGIN</Link></li>
+                            {user ? (
+                                <li><a onClick={logout} className={style.menu__link}>LOGOUT</a></li>
+                            ):(
+                                <li><Link to='/login' className={style.menu__link}>LOGIN</Link></li>
+                            )}
                         </ul>
                     </nav>
                 </div>

@@ -1,5 +1,5 @@
 const express = require('express')
-const touter = express.Router
+const router = express.Router()
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 
@@ -24,7 +24,7 @@ router.post('/register', async(req, res) =>{
 
 router.post('/login', async(req,res)=>{
     try{
-        const {email, password} = req.body;
+        const {email, password, username} = req.body;
         if(!email || !password){
             return res.status(400).json({message: 'Будь ласка заповніть усі поля'})
         }

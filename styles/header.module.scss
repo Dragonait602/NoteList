@@ -105,6 +105,11 @@ body{
     	text-decoration: none;
     	text-align: center;
     	font-size: 40px;
+		&:hover{
+			color: red;
+			@include mixins.anim(0.4s, 0s);
+			cursor:pointer;
+		}
 	}
 
 }

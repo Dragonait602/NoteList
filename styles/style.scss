@@ -13,6 +13,7 @@ body {
 	background-color: #74d16490;
 	color: #000;
 	font-size: 14px;
+	font-family: "Permanent Marker";
 	&.lock {
 		overflow: hidden;
 	}
@@ -27,9 +28,7 @@ body {
 }
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
-.container {
-	
-}
+.container {}
 
 .main{
 	@include mixins.flexbox();
@@ -50,6 +49,104 @@ body {
 	&::placeholder{
 		padding: 10px 0 10px 10px;
 	}
-	font-family: "Permanent Marker";
 	padding: 0 0 0 10px;
+}
+
+.login{
+	border: #000000 solid 2px;
+	&__block{
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__title{
+		font-size: 30px;
+		margin: 60px 0 0 0;
+	}
+
+	&__inputs{
+		@include mixins.flexbox();
+		flex-direction: column;
+		input{
+			margin: 10px 0 0 0;
+			border: 3px solid rgb(170, 163, 163);
+			font-size: 30px;
+			font-family: "Permanent Marker";
+			&::placeholder{
+			padding: 10px 0 10px 5px;
+		}
+		}
+	}
+
+	&__button{
+		margin: 20px 0 0 0;
+		button{
+		border: #000 solid 2px;
+		border-radius: 5px;
+		font-size: 20px;
+		font-family: "Permanent Marker";
+		padding: 5px 10px;
+		}
+	}
+
+	&__register{
+		margin: 10px 0 0 0;
+		a{
+			color: #000;
+			font-size: 18px;
+			&:hover{
+				color: red;
+				@include mixins.anim(0.4s, 0s);
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.register{
+	&__block{
+		margin: 0 auto;
+		text-align: center;
+	}
+	&__title{
+		font-size: 30px;
+		margin: 60px 0 0 0;
+	}
+
+	&__inputs{
+		@include mixins.flexbox();
+		flex-direction: column;
+		input{
+			margin: 10px 0 0 0;
+			border: 3px solid rgb(170, 163, 163);
+			font-size: 30px;
+			font-family: "Permanent Marker";
+			&::placeholder{
+			padding: 10px 0 10px 5px;
+		}
+		}
+	}
+
+	&__button{
+		margin: 20px 0 0 0;
+		button{
+		border: #000 solid 2px;
+		border-radius: 5px;
+		font-size: 20px;
+		font-family: "Permanent Marker";
+		padding: 5px 10px;
+		}
+	}
+
+	&__login{
+		margin: 10px 0 0 0;
+		a{
+			color: #000;
+			font-size: 18px;
+			&:hover{
+				color: red;
+				@include mixins.anim(0.4s, 0s);
+				cursor: pointer;
+			}
+		}
+	}
 }
